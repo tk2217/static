@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OAuth2 Response Debugger</title>
+
+        <style>
+            * {
+                padding: 3px;
+                margin: 0;
+
+                font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                
+                display: flex;
+                flex-direction: column;
+
+                align-items: center;
+                justify-content: center;
+            }
+
+            h1 {
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>OAuth2 Response Debugger</h1>
+        <h3>Authentication Code</h3>
+        <p id="code"></p>
+
+        <script>
+            let code = new URL(location.href).searchParams.get("code");
+            if (code == null) code = "Unable to find code.";
+            console.log(code);
+            document.getElementById("code").textContent = code;
+        </script>
+    </body>
+</html>
